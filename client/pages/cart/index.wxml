@@ -2,3 +2,5 @@
   <image src="{{cartImg}}" class="cart-image"/>
   <view>{{tipWords}}</view>
 </view>
+<!--index.wxml-->
+<import src="../template-cart/template-cart.wxml"/>

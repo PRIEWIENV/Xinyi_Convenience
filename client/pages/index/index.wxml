@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+  <view class="container">
     <view>
         <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
                 autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
@@ -13,7 +13,7 @@
 
     <view class="text">
         <view class="line_flag"></view>
-        <text>主题馆</text>
+        <text>为您推荐</text>
     </view>
     
     <view class="venues_box">
@@ -30,7 +30,7 @@
 
     <view class="text">
         <view class="line_flag"></view>
-        <text>环球精选</text>
+        <text>本月最畅销</text>
     </view>
 
     <view class="choice_box">
@@ -47,7 +47,7 @@
     </view>
 
     <loading hidden="{{loadingHidden}}">
-        加载中...
+        loading...
     </loading>
 
 </view>
