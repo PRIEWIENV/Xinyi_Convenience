@@ -1,19 +1,41 @@
-<!--index.wxml-->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+	<view class="userinfo">
+		<image wx:if="{{userInfo && userInfo.avatarUrl}}" class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"></image>
+		<text class="userinfo-nickname">{{ userInfo.nickName }}</text>
+	</view>
+ <view class="my-item">
+    <navigator url="/pages/account/index" hover-class="navigator-hover">绑定info账号</navigator>
   </view>
-  <view class="info_list">
-    <block wx:for="{{userListInfo}}">
-        <view class="weui_cell">
-            <view class="weui_cell_hd"><image src="{{item.icon}}"></image></view>
-            <view class="weui_cell_bd">
-                <view class="weui_cell_bd_p"> {{item.text}} </view>
-            </view>
-            <view wx:if="{{item.isunread}}" class="badge">{{item.unreadNum}}</view>
-            <view class="with_arrow"></view>
-        </view>
-    </block>
+  <view class="my-item">
+    <navigator url="/pages/code/index" hover-class="navigator-hover">我的二维码</navigator>
   </view>
+ 
+  <view class="my-item">
+    <navigator url="/pages/order/index" hover-class="navigator-hover">我的订单</navigator>
+  </view>
+
+  <view class="my-item">
+    <navigator url="/pages/coupon/index" hover-class="navigator-hover">我的优惠券</navigator>
+  </view>
+   <view class="my-item">
+    <navigator url="/pages/questions/index" hover-class="navigator-hover">常见问题</navigator>
+  </view>
+   <view style="height:20rpx;background: #eee;width:100%;"></view>
+  <view class="about" bindtap="contactUs">
+    联系客服
+  </view>
+
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  <view class="about" bindtap="aboutUs">
+    关于我们
+  </view>
+
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  <view class="my-item" style="border:none;padding:0rpx;margin:0rpx;background:none;border:none;height:auto;line-height:auto;">
+    <button type="warn" bindtap="relogin">重新登录</button>
+  </view>
+  
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  <view class="version">Powered by XInyi_Convenience {{version}}</view>
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
 </view>

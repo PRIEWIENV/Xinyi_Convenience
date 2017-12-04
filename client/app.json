@@ -7,10 +7,11 @@
     "pages/details/index",
     "pages/brand/index",
     "pages/list/index",
-    "pages/order/order",
-    "pages/coupon/coupon",
-    "pages/account/account",
-    "pages/questions/questions"   
+    "pages/order/index",
+    "pages/coupon/index",
+    "pages/account/index",
+    "pages/questions/index",  
+    "pages/code/index"
   ],
   "window": {
     "backgroundTextStyle": "white",

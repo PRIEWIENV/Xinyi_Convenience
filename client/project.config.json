@@ -9,7 +9,7 @@
 	"compileType": "weapp",
 	"libVersion": "1.6.0",
 	"appid": "wx1eaa9a7f7f94fd7d",
-	"projectname": "xinyi",
+	"projectname": "xinyinew",
 	"condition": {
 		"weapp": {
 			"current": -1,
