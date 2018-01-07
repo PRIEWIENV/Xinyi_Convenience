@@ -1,6 +1,9 @@
 <view class="container">
-  <image src="{{cartImg}}" class="cart-image"/>
-  <view>{{tipWords}}</view>
-</view>
-<!--index.wxml-->
-<import src="../template-cart/template-cart.wxml"/>
+ <view class="my-item">
+    <navigator url="/pages/scancode/index" hover-class="navigator-hover">扫码购物</navigator>
+  </view>
+  
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  </view>

@@ -1,2 +1,19 @@
-<!--pages/my/coupon.wxml-->
-<text>pages/my/coupon.wxml</text>
+<!-- 优惠券列表 -->
+<view>
+  <loading hidden="{{!loading}}">
+    加载中...
+  </loading>
+  
+  <scroll-view scroll-y="true">
+    <view wx:for="{{coupons}}" wx:for-item="group">
+      <view class="item" wx:for="{{group.lists}}">
+        <image class="{{item.price ? 'poster' : 'poster-bk'}}" mode="aspectFit" src="{{item.img}}"></image>
+        <view class="meta" wx:if="{{item.price}}">
+          <text class="title">{{item.name}}</text>
+          <text class="price">{{item.price}}</text>
+          <text class="time">{{item.time}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

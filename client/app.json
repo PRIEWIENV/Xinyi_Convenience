@@ -11,7 +11,8 @@
     "pages/coupon/index",
     "pages/account/index",
     "pages/questions/index",  
-    "pages/code/index"
+    "pages/code/index",
+    "pages/scancode/index"
   ],
   "window": {
     "backgroundTextStyle": "white",

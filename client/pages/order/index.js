@@ -2,9 +2,9 @@
 var app = getApp()
 Page({
   data: {
-    statusType: ["待付款", "待发货", "待收货", "待评价", "已完成"],
+    statusType: ["待支付", "已支付未校验", "已支付已校验"],
     currentType: 0,
-    tabClass: ["", "", "", "", ""]
+    tabClass: ["", "", ""]
   },
   statusTap: function (e) {
     var curType = e.currentTarget.dataset.index;
@@ -20,76 +20,7 @@ Page({
       url: "/pages/order-details/index?id=" + orderId
     })
   },
-  cancelOrderTap: function (e) {
-    var that = this;
-    var orderId = e.currentTarget.dataset.id;
-    wx.showModal({
-      title: '确定要取消该订单吗？',
-      content: '',
-      success: function (res) {
-        if (res.confirm) {
-          wx.showLoading();
-          wx.request({
-            url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/close',
-            data: {
-              token: app.globalData.token,
-              orderId: orderId
-            },
-            success: (res) => {
-              wx.hideLoading();
-              if (res.data.code == 0) {
-                that.onShow();
-              }
-            }
-          })
-        }
-      }
-    })
-  },
-  toPayTap: function (e) {
-    var that = this;
-    var orderId = e.currentTarget.dataset.id;
-    var money = e.currentTarget.dataset.money;
-    wx.request({
-      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
-      data: {
-        token: app.globalData.token
-      },
-      success: function (res) {
-        if (res.data.code == 0) {
-          // res.data.data.balance
-          money = money - res.data.data.balance;
-          if (money <= 0) {
-            // 直接使用余额支付
-            wx.request({
-              url: 'https://api.it120.cc/' + app.globalData.subDomain + '/order/pay',
-              method: 'POST',
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              data: {
-                token: app.globalData.token,
-                orderId: orderId
-              },
-              success: function (res2) {
-                wx.reLaunch({
-                  url: "/pages/order-list/index"
-                });
-              }
-            })
-          } else {
-            wxpay.wxpay(app, money, orderId, "/pages/order-list/index");
-          }
-        } else {
-          wx.showModal({
-            title: '错误',
-            content: '无法获取用户资金信息',
-            showCancel: false
-          })
-        }
-      }
-    })
-  },
+  
   onLoad: function (options) {
     // 生命周期函数--监听页面加载
 
@@ -141,7 +72,7 @@ Page({
     })
   },
   onShow: function () {
-    // 获取订单列表
+    // 获取商品列表
     wx.showLoading();
     var that = this;
     var postData = {
